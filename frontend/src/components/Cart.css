@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap');
+
+.cart-shell {
+  --cart-bg: #f4f7fb;
+  --cart-panel: rgba(255, 255, 255, 0.92);
+  --cart-border: rgba(15, 23, 42, 0.08);
+  --cart-title: #111827;
+  --cart-muted: #5b6472;
+  --cart-accent: #0e7490;
+  --cart-accent-strong: #155e75;
+  --cart-danger: #b91c1c;
+  position: relative;
+  min-height: calc(100vh - 72px);
+  background:
+    radial-gradient(circle at 8% 16%, rgba(14, 116, 144, 0.18), transparent 28%),
+    radial-gradient(circle at 90% 84%, rgba(14, 116, 144, 0.14), transparent 30%),
+    linear-gradient(160deg, #f8fbff 0%, var(--cart-bg) 55%, #eef4f8 100%);
+  overflow: hidden;
+}
+
+.cart-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(16px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.cart-orb-left {
+  width: 220px;
+  height: 220px;
+  top: 140px;
+  left: -80px;
+  background: rgba(14, 116, 144, 0.16);
+}
+
+.cart-orb-right {
+  width: 280px;
+  height: 280px;
+  right: -100px;
+  bottom: 40px;
+  background: rgba(56, 189, 248, 0.16);
+}
+
+.cart-layout {
+  position: relative;
+  z-index: 1;
+  animation: cartRise 420ms ease-out;
+}
+
+.cart-kicker {
+  font-family: 'Space Grotesk', sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  color: var(--cart-accent-strong);
+}
+
+.cart-title {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  color: var(--cart-title);
+}
+
+.cart-subtitle {
+  color: var(--cart-muted);
+}
+
+.cart-pill {
+  padding: 0.55rem 0.95rem;
+  border-radius: 999px;
+  background: rgba(14, 116, 144, 0.1);
+  color: var(--cart-accent-strong);
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+}
+
+.cart-panel {
+  border: 1px solid var(--cart-border);
+  border-radius: 22px;
+  padding: 1.2rem;
+  background: var(--cart-panel);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 22px 42px rgba(15, 23, 42, 0.08);
+}
+
+.cart-table thead th {
+  color: #3b4350;
+  font-family: 'Space Grotesk', sans-serif;
+  letter-spacing: 0.03em;
+  font-size: 0.86rem;
+  border-bottom-width: 1px;
+}
+
+.cart-table tbody td {
+  border-color: rgba(15, 23, 42, 0.08);
+}
+
+.cart-item-image {
+  width: 78px;
+  height: 78px;
+  border-radius: 16px;
+  object-fit: cover;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+}
+
+.cart-qty-group {
+  width: 126px;
+}
+
+.cart-qty-group .form-control {
+  border-left: 0;
+  border-right: 0;
+  font-weight: 600;
+}
+
+.cart-mobile-item {
+  border: 1px solid var(--cart-border);
+  background: #fff;
+  border-radius: 16px;
+  padding: 0.9rem;
+}
+
+.cart-summary {
+  border-top: 1px dashed rgba(15, 23, 42, 0.14);
+  padding-top: 1rem;
+}
+
+.cart-action-btn {
+  border: 0;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--cart-accent) 0%, #0369a1 100%);
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  color: #fff;
+  padding: 0.72rem 1.3rem;
+  text-decoration: none;
+  transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
+}
+
+.cart-action-btn:hover {
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 14px 24px rgba(3, 105, 161, 0.28);
+  filter: saturate(1.05);
+}
+
+.cart-empty {
+  color: #1f2937;
+}
+
+.cart-empty .bi-cart-x {
+  color: #64748b;
+}
+
+@keyframes cartRise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .cart-panel {
+    border-radius: 18px;
+    padding: 0.9rem;
+  }
+
+  .cart-title {
+    font-size: 1.65rem;
+  }
+
+  .cart-action-btn {
+    width: 100%;
+  }
+}
